@@ -1,0 +1,46 @@
+.header{
+    background-color: #fff;
+    height: 80px;
+    padding: 0 15px;
+}
+.header__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.button__row{
+    display: flex;
+    column-gap: 30px;
+}
+.isLogin{
+    display: flex;
+    column-gap: 37px;
+}
+.create{
+    color: #52C41A;
+    border: 1px solid #52C41A;
+    border-radius: 5px;
+    padding: 6px 10px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.signup{
+    padding: 6px 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.user{
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+.signin{
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,59 @@
+.signWrapper{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    background-color: #EBEEF3;
+    form{
+        background-color: #fff;
+        padding: 48px 36px;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px 5px rgb(209, 209, 209) ;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        min-width: 390px;
+    }
+    h3{
+        font-weight: 500;
+        font-size: 20px;
+    }
+    label{
+        text-align: left;
+    }
+
+    button{
+        background-color:#1890FF;
+        border-radius: 5px;
+        padding-block: 8px;
+        color: #fff;
+    }
+    hr{
+        height: 2px;
+        width: 100%;
+        background-color: rgb(200, 200, 200);
+        margin-block: 10px;
+    }
+}
+.checkbox{
+    display: flex;
+    column-gap: 5px;
+    align-items: start;
+    margin-bottom: 10px;
+
+    label{
+        max-width: 254px;
+    }
+    input{
+        margin-top: 3px;
+    }
+}
+.footer{
+    color: gray;
+    a{
+        color: #1890FF;
+    }
+}
+.inputError{
+    border: 1px solid red !important;
+}
