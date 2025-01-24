@@ -1,32 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import style from './PostList.css'
+import style from './PostList.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts } from '../../store/slices/posts'
 import Post from '../Post/Post'
 
 import { Pagination } from 'antd';
 const PostList = () => {
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(0)
     const dispath = useDispatch()
-
+    let page = currentPage
+    let limit = 4;
+    let offset = limit * page; 
     useEffect(()=>{
-        let page = currentPage
-        let limit = 8;
-        let offset = limit * page; 
-        let total = 30/limit
+
+
         dispath(fetchPosts({offset,limit}))
     }, [currentPage])
 
-
+    const articlesCount = useSelector(state=>{
+        return state.posts.articles.articlesCount
+    })
+    console.log('articlesCount', articlesCount)
     const selectorPosts = useSelector(state=>{
-        console.log(state)
         return state.posts.articles.articles
     })    
     const statusLoading = useSelector(state=>{
         return state.posts.status 
     })
     const handlePageChange = (page) => {
-        setCurrentPage(page); // Обновляем текущую страницу
+        setCurrentPage(page-1); // Обновляем текущую страницу
         console.log(currentPage)
       };
   return (
@@ -53,7 +55,10 @@ const PostList = () => {
             :
             'wate a minute'
         }
-        <Pagination align='center' onChange={handlePageChange} defaultCurrent={currentPage} total={30} /></div>
+        <div className={style.pagination}>
+            <Pagination  align='center' onChange={handlePageChange} pageSize={limit} defaultCurrent={currentPage} total={articlesCount} /></div>
+
+        </div>
   )
 }
 

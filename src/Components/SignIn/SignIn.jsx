@@ -36,14 +36,21 @@ const SignIn = () => {
     e.preventDefault();
     try {
       if (!getValidate(formData, setErrors)) return;
-      const data = await loginUser(formData);
+      const data = await loginUser(formData)
+      .then(data=>{
+        dispatch(setLogin());
+        dispatch(setUserName(data.data.user.username))
+        dispatch(setUserImg(data.data.user.image))
+        window.localStorage.setItem('username',data.data.user.username )
+        navigate("/");
+      })
 
-      navigate("/");
-      dispatch(setLogin());
-      dispatch(setUserName(data.data.user.username))
-      dispatch(setUserImg(data.data.user.image))
+    
+
+
     } catch (error) {
       alert("не удалось авторизоваться");
+      console.log(error)
       return;
     }
   };

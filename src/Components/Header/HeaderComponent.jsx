@@ -31,11 +31,11 @@ const HeaderComponent = () => {
                 {
                     isLogin?
                     <div className="isLogin">
-                        <a href='#' className="create">Create article</a>
-                        <a href='#' className="user">
+                        <Link href='#' to={'/createarticle'} className="create">Create article</Link>
+                        <Link to={'/editprofile'} href='#' className="user">
                             <span>{userName}</span>
                             <img src={userImg? userImg: userIcon} alt="" />
-                        </a>
+                        </Link>
                     </div>
                     :
                     <Link to={'/signin'} href="#" className='signin'>Sign in</Link>

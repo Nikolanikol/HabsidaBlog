@@ -10,6 +10,8 @@ import PostIdPage from './pages/PostIdPage';
 import CreateUser from './pages/CreateUser';
 import SignInPage from './pages/SignInPage';
 import EditProfile from './Components/EditProfile/EditProfile';
+import CreateArticlePage from './pages/CreateArticlePage';
+import EditArticlePage from './pages/EditArticlePage';
 
 function App() {
   
@@ -26,6 +28,8 @@ function App() {
                     <Route path='/createuser' element={<CreateUser/>}/>
                     <Route path='/signin' element={<SignInPage/>}/>
                     <Route path='/editprofile' element={<EditProfile/>}/>
+                    <Route path='/editearticle/:slug' element={<EditArticlePage/>}/>
+                    <Route path='/createarticle' element={<CreateArticlePage/>}/>
                 </Routes>
             </div>
   );

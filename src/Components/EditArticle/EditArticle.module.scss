@@ -1,0 +1,80 @@
+.wrapper{
+    // height: 100vh;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    form{
+        padding: 48px 32px;
+        background-color: #fff;
+        max-width: 700px;
+        // max-height: 940px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 21px;
+        align-items: start;
+    }
+    h3{
+        align-self: center;
+    }
+    label{
+
+    }
+    input,textarea{
+        border: 1px solid gray;
+        padding: 8px 12px;
+        width: 100%;
+        border-radius: 5px;
+    }
+    textarea{
+        min-height: 190px;
+    }
+}
+.tagWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 10px;
+    h3{
+        align-self: flex-start;
+    }
+
+}
+.tagBlock{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    input{
+        max-width: 200px;
+    }
+}
+.buttonRow{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    position: relative;
+    row-gap: 10px;
+}
+.btnAdd{
+    padding: 8px 36px;
+    border: 1px solid blue;
+    color: blue;
+    border-radius: 5px;
+    min-width: 130px;
+}
+.hide{
+    display: none;
+}
+.btnDelete{
+    padding: 8px 36px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 5px;
+    min-width: 130px;
+}
+.btnSubmit{
+    color: #fff;
+    border-radius: 1px solid blue;
+    background-color: blue;
+    padding: 8px 141px;
+}

@@ -59,4 +59,88 @@
     min-width: 140px;
     align-items: center;
     column-gap: 14px;
+    position: relative;
+}
+.pageid{
+    display: flex;
+    flex-direction: column;
+    & .user-row-header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 10px;
+    }
+    & .btns-row{
+
+        display: flex;
+        align-self: center;
+        justify-content: space-between;
+        column-gap: 55px;
+        margin-top: 30px;
+        & button{
+            padding: 6px 30px;
+            border-radius: 5px;
+        }
+    }
+}
+.red-btn{
+    color: red;
+    border: 1px solid red;
+    
+}
+.green-btn{
+    color: green;
+    border: 1px solid green;
+    padding: 6px 30px;
+            border-radius: 5px;
+            display: block;
+
+}
+.delete-modal{
+    padding: 12px 16px;
+    box-shadow: 5px 5px 5px 5px gray;
+    position: absolute;
+    bottom: -65px;
+    right: -115px;
+    z-index: 5;
+    background-color: #fff;
+    & p{
+        position: relative;
+    
+        padding-left: 24px;
+        max-width: 208px;
+        text-align: left;
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 14px;
+            aspect-ratio: 1;
+            background-image: url('./Vector.svg');
+        }
+    }
+    & .modal-btn-row{
+        display: flex;
+        column-gap: 8px;
+        justify-self: end;
+        & button{
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+    }
+}
+.btn-grey{
+    border: 1px solid grey;
+}
+.btn-blue{
+    border: 1px solid #1890FF;
+    background-color: #1890FF;
+    color: white;
+    display: block;
+    
+}
+.delete-modal-hide{
+    display: none;
 }
