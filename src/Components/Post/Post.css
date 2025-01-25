@@ -8,7 +8,7 @@
     box-shadow: 10px 10px 10px 10px gray;
     border-radius: 10px;
     max-width: 880px;
-    margin: 0 10px;
+    margin: 0 auto;
     margin-top: 34px;
     overflow-y: clip;
     min-height: 185px;
@@ -71,7 +71,6 @@
         column-gap: 10px;
     }
     & .btns-row{
-
         display: flex;
         align-self: center;
         justify-content: space-between;
