@@ -71,7 +71,7 @@ const PostIdPage = () => {
               </div>
             </div>
             <div className="post__user-row pageid">
-              <div className="user-row-header">
+              <div style={{display: 'flex'}} className="user-row-header">
                 <div className="text__row">
                   <div className="user_name">{capitalizeFirstLetter(data.author.username)}</div>
                   <div className="user-date">{formattedDate}</div>
@@ -82,7 +82,7 @@ const PostIdPage = () => {
                 />
               </div>
               {data.author.username === arcticleAuthor && isAuth && (
-                <div className="btns-row">
+                <div style={{display: 'flex'}} className="btns-row">
                   <button onClick={() => setIsModal(true)} className="red-btn">
                     Delete
                   </button>
