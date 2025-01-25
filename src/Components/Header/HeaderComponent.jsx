@@ -3,7 +3,7 @@ import './HeaderComponent.css'
 import userIcon from './user-icon.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLogin, setLogout } from '../../store/slices/user'
+import { setLogin, setLogout, setUserName } from '../../store/slices/user'
 const HeaderComponent = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -20,7 +20,9 @@ const HeaderComponent = () => {
     useEffect(()=>{
         if(localStorage.getItem('token')){
             dispatch(setLogin())
-            
+        }
+        if(localStorage.getItem('username')){
+            dispatch(setUserName(localStorage.getItem('username')))
         }
     },[])
   return (
