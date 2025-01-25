@@ -3,6 +3,9 @@
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    margin-inline: 10px;
+    margin-bottom: 20px;
+
     form{
         padding: 48px 32px;
         background-color: #fff;
@@ -13,6 +16,8 @@
         flex-direction: column;
         row-gap: 21px;
         align-items: start;
+        box-shadow: 10px 10px 10px 10px gray;
+        border-radius: 10px;
     }
     h3{
         align-self: center;
@@ -77,4 +82,12 @@
     border-radius: 1px solid blue;
     background-color: blue;
     padding: 8px 141px;
+}
+@media(max-width: 750px){
+    .btnDelete,.btnAdd{
+        padding: 8px 10px;
+        min-width: 100px;
+
+
+    }
 }

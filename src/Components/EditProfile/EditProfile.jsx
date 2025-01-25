@@ -52,7 +52,7 @@ const EditProfile = () => {
   return (
     <div className={styles.signWrapper}>
       <form onSubmit={handleSubmit} action="">
-        <h3>Create new account</h3>
+        <h3>Edit profile</h3>
         <MyInput
           value={formData.username}
           placeholder="Username"

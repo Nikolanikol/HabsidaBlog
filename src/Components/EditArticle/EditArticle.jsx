@@ -80,7 +80,7 @@ const EditArticle = () => {
         alert("Post updated");
       })
       .catch((e) => alert("something wrong"))
-      .finally(navigate(`/post/${slug}`));
+      .finally(navigate(`/`));
   };
   const [tags, setTags] = useState([{ tag: "", number: Date.now() }]);
   const addInfo = () => {
@@ -101,7 +101,7 @@ const EditArticle = () => {
   return (
     <div className={style.wrapper}>
       <form onSubmit={handleSubmit(mySubmit)} action="">
-        <h3>Create new article</h3>
+        <h3>Edit article</h3>
 
         <label htmlFor="title">Title</label>
         <input

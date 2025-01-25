@@ -34,9 +34,10 @@ const CreateArticleComponent = () => {
         setTags([
             {tag : '', number : Date.now()}
           ])
+        alert('Post Added')
     })
     .catch(e=>alert('something wrong'))
-    .finally(()=>responce)
+    .finally(navigate('/'))
 
   };
   const [tags, setTags] = useState([

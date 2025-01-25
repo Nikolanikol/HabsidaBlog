@@ -4,10 +4,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "../http/index";
 import likeIcon from "./like-icon.svg";
 import userIcon from "./user-icon.svg";
-import { marked } from "marked";
 import MarkdownViewer from "../utils/MarkdownComponent/markdown";
 import { format } from "date-fns";
 import { setUserName } from "../store/slices/user";
+import { capitalizeFirstLetter } from "../utils/capitalize";
+import LikeBlock from "../Components/LikeBlock/LikeBlock";
+
 
 const PostIdPage = () => {
     const dispatch = useDispatch()
@@ -18,6 +20,7 @@ const PostIdPage = () => {
   const isAuth = useSelector((state) => state.user.isLogin);
   const arcticleAuthor = useSelector((state) => state.user.name);
   const navigate = useNavigate();
+  
   useEffect(() => {
     axios
       .get(`/articles/${slug}`)
@@ -29,8 +32,8 @@ const PostIdPage = () => {
       })
       .finally(() => setIsLoading(false));
   }, []);
-  const formattedDate = loading
-    ? ""
+  const formattedDate = loading? 
+    ""
     : format(new Date(data.createdAt), "MMMM d, yyyy");
   const handleRemoveModal = async (slug) => {
     await axios
@@ -43,6 +46,7 @@ const PostIdPage = () => {
       .finally(navigate("/"));
   };
 
+
   return loading ? (
     "loading"
   ) : (
@@ -52,15 +56,9 @@ const PostIdPage = () => {
           <div className="post__row">
             <div className="post__title-row">
               <div className="title__row">
-                <div className="post__title">{data.slug}</div>
-                <div className="post__like">
-                  <button>
-                    {" "}
-                    <img src={likeIcon} alt="" />{" "}
-                    <span>{data.favoritesCount}</span>
-                  </button>
-                </div>
-                <Link to={`/editearticle/${data.slug}`}>Edit</Link>
+                <div className="post__title">{capitalizeFirstLetter(data.slug)}</div>
+                <LikeBlock slug={data.slug} isFavorite={data.favorited} likeCount={data.favoritesCount}/>
+
               </div>
               <div className="tag__row">
                 {data.tagList.map((tag, i) => {
@@ -75,7 +73,7 @@ const PostIdPage = () => {
             <div className="post__user-row pageid">
               <div className="user-row-header">
                 <div className="text__row">
-                  <div className="user_name">{data.author.username}</div>
+                  <div className="user_name">{capitalizeFirstLetter(data.author.username)}</div>
                   <div className="user-date">{formattedDate}</div>
                 </div>
                 <img

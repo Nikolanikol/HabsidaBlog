@@ -20,7 +20,6 @@ const userSlice = createSlice({
              state.isLogin = false
         },
         setUserName : (state, action)=>{
-            console.log(action.payload, 'payload')
              state.name = action.payload
         },
         setUserImg : (state)=>{

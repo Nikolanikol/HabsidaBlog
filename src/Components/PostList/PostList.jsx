@@ -12,15 +12,13 @@ const PostList = () => {
     let limit = 4;
     let offset = limit * page; 
     useEffect(()=>{
-
-
         dispath(fetchPosts({offset,limit}))
     }, [currentPage])
 
     const articlesCount = useSelector(state=>{
         return state.posts.articles.articlesCount
     })
-    console.log('articlesCount', articlesCount)
+
     const selectorPosts = useSelector(state=>{
         return state.posts.articles.articles
     })    
@@ -29,7 +27,7 @@ const PostList = () => {
     })
     const handlePageChange = (page) => {
         setCurrentPage(page-1); // Обновляем текущую страницу
-        console.log(currentPage)
+
       };
   return (
     <div className='post-list'>
@@ -48,6 +46,7 @@ const PostList = () => {
                     createDate={item.createdAt}
                     desc={item.description}
                     img={item.author.image}
+                    favorited={item.favorited}
                 />
                 )
             })

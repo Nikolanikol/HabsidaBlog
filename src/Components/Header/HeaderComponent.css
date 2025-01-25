@@ -8,10 +8,12 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    column-gap: 10px;
 }
 .button__row{
     display: flex;
     column-gap: 30px;
+
 }
 .isLogin{
     display: flex;
@@ -43,4 +45,14 @@
 .signin{
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 750px) {
+    .isLogin{
+        column-gap: 5px
+    }
+    .user {
+        flex-direction: column-reverse;
+        font-weight: 700;
+    }
 }

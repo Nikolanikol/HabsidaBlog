@@ -9,7 +9,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ({offset, l
           limit: limit, // Количество элементов на странице
         },
       });
-      console.log(data)
+
       const dataId = data.articles.map(item=>{
         return {...item, id : nanoid()}
 
@@ -18,7 +18,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ({offset, l
         articles : dataId,
         articlesCount : data.articlesCount
       }
-      console.log(dataId)
+
       return res; // Возвращаем данные из ответа
     } catch (error) {
       console.error('Ошибка при загрузке данных:', error);
@@ -34,29 +34,6 @@ export const deletePost = createAsyncThunk('posts/deletePost', async(id)=>{
 })
 const initialState = {
     articles : [
-        {
-            "slug": "sustainable-living-tips-and-tricks",
-            "title": "Sustainable Living: Tips and Tricks",
-            "description": "Simple ways to reduce your carbon footprint and live sustainably.",
-            "body": "Sustainability is more important than ever. This article provides practical tips and tricks to help you live a more sustainable life, from reducing waste to conserving energy.\n\n      One of the easiest ways to start living sustainably is to reduce your use of single-use plastics. Bring reusable bags to the store, use a refillable water bottle, and avoid products with excessive packaging.\n\n      Another important aspect of sustainable living is energy conservation. Turn off lights when you leave a room, unplug devices when they're not in use, and consider investing in energy-efficient appliances.",
-            "tagList": [
-                "Food",
-                "History",
-                "Relationships",
-                "Self-Improvement",
-                "Sports"
-            ],
-            "createdAt": "2025-01-13T02:57:28.000Z",
-            "updatedAt": "2025-01-13T02:57:28.000Z",
-            "favorited": false,
-            "favoritesCount": 0,
-            "author": {
-                "username": "bob",
-                "bio": "Bob is a data scientist who enjoys analyzing data and building predictive models.",
-                "image": "https://randomuser.me/api/portraits/men/2.jpg",
-                "following": false
-            }
-        }
     ]
 
 }
@@ -65,7 +42,14 @@ const postsSlice = createSlice({
     name : 'post',
     initialState,
     reducers : {
-
+        setLike : (state, action)=>{
+            state.articles.articles.map(item=>{
+                if(item.slug === action.payload){
+                    return {...item, favorited : !item.favorited}
+                }
+                return item
+            })
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -95,5 +79,5 @@ const postsSlice = createSlice({
     
 })
 
-
+export const {setLike} = postsSlice.actions
 export const postsReduser = postsSlice.reducer

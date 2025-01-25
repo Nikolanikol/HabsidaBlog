@@ -8,10 +8,10 @@
     box-shadow: 10px 10px 10px 10px gray;
     border-radius: 10px;
     max-width: 880px;
-    margin: 0 auto;
+    margin: 0 10px;
     margin-top: 34px;
     overflow-y: clip;
-
+    min-height: 185px;
 }
 .post-id-wrapper{
     margin-bottom: 20px;
@@ -143,4 +143,22 @@
 }
 .delete-modal-hide{
     display: none;
+}
+@media(max-width:750px){
+    .tag__row{
+        flex-wrap: wrap;
+        row-gap: 5px;
+    }
+    .post__user-row{
+        img{
+            max-width: 50%;
+        }
+    }
+    .tag__item{
+        font-size: 10px;
+    }
+    .delete-modal{
+        bottom: -110px;
+        right: 0px;
+    }
 }
